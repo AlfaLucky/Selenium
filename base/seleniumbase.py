@@ -1,5 +1,3 @@
-import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,7 +23,7 @@ class SeleniumBase:
         return locating[find_by]
 
     def is_visible(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
-        """Поиск элемента на странице"""
+        """Finding an element on a page"""
         return self.__wait.until(ec.visibility_of_element_located((self.__get_selenium_by(find_by=find_by), locator)),
                                locator_name)
 
@@ -35,20 +33,20 @@ class SeleniumBase:
                                locator_name)
 
     def is_not_present(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
-        """Ожидает что элемент исчез"""
+        """Waiting for the element to disappear"""
         return self.__wait.until(ec.invisibility_of_element_located((self.__get_selenium_by(find_by=find_by), locator)),
                                locator_name)
 
     def are_visible(self, find_by: str, locator: str, locator_name: str = None) -> List[WebElement]:
-        """Поиск элементов на странице и возвращает веб элемент списком"""
+        """Search for elements on the page and return the web element as a list"""
         return self.__wait.until(ec.visibility_of_all_elements_located((self.__get_selenium_by(find_by=find_by), locator)),
                                locator_name)
 
     def are_present(self, find_by: str, locator: str, locator_name: str = None) -> List[WebElement]:
-        """Возвращает веб элемент списком"""
+        """Returns the web element as a list"""
         return self.__wait.until(ec.presence_of_all_elements_located((self.__get_selenium_by(find_by=find_by), locator)),
                                locator_name)
 
     def get_text_from_webelements(self, elements: List[WebElement]) -> List[str]:
-        """Функция возвращает список строк которые мы взяли с наших веб элементов"""
+        """The function returns a list of strings that we took from our web elements."""
         return [element.text for element in elements]

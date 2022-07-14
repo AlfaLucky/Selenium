@@ -12,11 +12,11 @@ class HomePageNav(SeleniumBase):
         self.NAV_LINK_TEXT = 'BOYS,GIRLS,BABY,WOMEN,MEN,HOME,BRANDS,SPORTS,SUMMER SHOP'
 
     def get_nav_links(self) -> List[WebElement]:
-        """Возвращает список веб элементов нав бара"""
+        """Returns a list of web elements in the nav bar"""
         return self.are_visible('css', self.__nav_links, 'Header Navigation Links')
 
     def get_nav_links_text(self) -> str:
-        """Создает и записывает в новый лист обьект, Возвращает текст строкой"""
+        """Creates and writes an object to a new sheet, Returns the text as a string"""
         nav_links = self.get_nav_links()
         nav_links_text = self.get_text_from_webelements(elements=nav_links)
         return ",".join(nav_links_text)

@@ -6,3 +6,9 @@ Install requirements.txt
 
 run test:
 pytest -s -v
+
+docker build:
+docker build -t names .
+
+docker run:
+docker run names pytest -v
