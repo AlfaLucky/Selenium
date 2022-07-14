@@ -1,7 +1,7 @@
 Install requirements.txt
 "pip install -r requirements.txt"
 
-Заходим в браузер и ищем последнию версию chromedriver и скачиваем и добовляем в макинтош/usr/local
+We go into the browser and look for the latest version of chromedriver and download and add to the mac/usr/local
 
 
 run test:
